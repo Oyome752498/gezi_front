@@ -197,12 +197,16 @@
  
     },
      mounted() {
-      
+       this.init();
     //   LoginHidden();
     },
      created() {
   },
   methods: {
+    init :function(){
+      document.getElementsByClassName("drag")[0].style.height=window.innerHeight+'px';
+      document.getElementsByClassName("drag")[0].style.width=window.innerWidth+'px';
+    },
     clickIcon: function (item,event) {
     //    item.img =  require('@/assets/'+this.a)
         let routeData = this.$router.resolve({
