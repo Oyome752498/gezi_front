@@ -10,7 +10,7 @@
       <el-tab-pane label="角色管理" class="js">
         <test></test>
       </el-tab-pane> -->
-      <el-tab-pane label="网格">
+      <el-tab-pane label="网格" v-bind:style="{display:none}">
         <parking-demo></parking-demo>
       </el-tab-pane>
     </el-tabs>
@@ -36,6 +36,9 @@ export default {
 </script>
 
 <style >
+  .el-tabs__header{
+    display: none;
+  }
   .js{
     width: 100%;
     height: 100%;
