@@ -1,5 +1,6 @@
 <template>
-  <div class="drag">
+<div>
+ <div class="drag" v-bind:style="{display:!clickFlag? 'block':'none'}">
             <div v-for="item in items" :key="item.id"  v-on:click="clickIcon(item,$event)" v-bind:style="{top:item.top,
             left:item.left,
             width:item.width,
@@ -13,7 +14,9 @@
             }" v-drag >
             <i class="iconfont icon-xingxing"></i>
             </div>
-        <div class="innerImg" @dblclick="close" v-bind:style="{display:clickFlag? 'block':'none',backgroundImage: 'url('+ imgUrl +')'}">
+      
+   </div> 
+       <div class="innerImg" @dblclick="close" v-bind:style="{display:clickFlag? 'block':'none',backgroundImage: 'url('+ imgUrl +')'}">
              <div v-for="item in innerItems" :key="item.id"  v-on:click="clickInnerIcon(item)" v-bind:style="{top:item.top,
             left:item.left,
             width:item.width,
@@ -27,7 +30,7 @@
             }" v-drag >
             <i class="iconfont icon-xingxing"></i>
             </div>
-              <el-dialog custom-class="dialogclass"
+              <!-- <el-dialog custom-class="dialogclass"
             width="20%"
             title="内层 Dialog"
             :visible.sync="innerVisible"
@@ -122,9 +125,23 @@
             <span > {{ innerTitle }}</span>
            
         </div>
-       </el-dialog>
-        </div>    
-   </div> 
+       </el-dialog> -->
+       
+        </div>  
+        <div class="innerTable"  v-bind:style="{display:clickFlag? 'block':'none'}">
+          <el-row type="flex" class="row-bg">
+            <el-col :span="6"><div class="grid-content bg-purple"><span>网格长（一肩挑）</span></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"><span >{{aaa}}</span></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
+            <el-col :span="6"><div class="grid-content bg-purple"> <span>13296708673</span></div></el-col>
+          </el-row>
+                
+                
+                
+               
+        </div>
+</div>
+ 
     
        <!-- <div class="innerdrag">
        <img id="imgs"  :src="url"/>
@@ -170,14 +187,14 @@
        imgUrl:"",
        innerTitle:"",
        innerVisible:false,
-
+        aaa:'123123',
              items:[
      
            {
               "id":4,
               "name":"中庄微网格",
-              "top": "76%",
-              "left": "62%",
+              "top": "73%",
+              "left": "56%",
                "width": "35px",
               "height": "30px",
               "border": "1px solid #666",
@@ -185,7 +202,7 @@
               "position": "absolute",
               "cursor": "move",
             //   "zIndex": "3000",
-              "img":require('../../assets/zhongzhuang1.png')
+              "img":require('../../assets/zhongzhuang.png')
 
           },
 
@@ -231,8 +248,8 @@
               "parentId":4,
               "id":1,
               "name":"红绿灯",
-              "top": "53%",
-              "left": "54%",
+              "top": "48%",
+              "left": "69%",
                "width": "35px",
               "height": "30px",
               "border": "1px solid #666",
@@ -247,8 +264,8 @@
               "parentId":4,
               "id":2,
               "name":"章义楼",
-              "top": "24%",
-              "left": "54%",
+              "top": "29%",
+              "left": "63%",
                "width": "35px",
               "height": "30px",
               "border": "1px solid #666",
@@ -263,8 +280,8 @@
               "parentId":4,
               "id":3,
               "name":"下中庄",
-              "top": "20%",
-              "left": "43%",
+              "top": "27%",
+              "left": "56%",
                "width": "35px",
               "height": "30px",
               "border": "1px solid #666",
@@ -279,8 +296,8 @@
               "parentId":4,
               "id":4,
               "name":"社区活动中心",
-              "top": "35%",
-              "left": "37%",
+              "top": "31%",
+              "left": "48%",
                "width": "35px",
               "height": "30px",
               "border": "1px solid #666",
@@ -295,8 +312,8 @@
               "parentId":4,
               "id":5,
               "name":"文化礼堂",
-              "top": "30%",
-              "left": "26%",
+              "top": "28%",
+              "left": "40%",
                "width": "35px",
               "height": "30px",
               "border": "1px solid #666",
@@ -311,8 +328,8 @@
               "parentId":4,
               "id":6,
               "name":"蓝岩",
-              "top": "39%",
-              "left": "25%",
+              "top": "34%",
+              "left": "36%",
                "width": "35px",
               "height": "30px",
               "border": "1px solid #666",
@@ -327,8 +344,8 @@
               "parentId":4,
               "id":7,
               "name":"前山屋",
-              "top": "69%",
-              "left": "20%",
+              "top": "46%",
+              "left": "35%",
                "width": "35px",
               "height": "30px",
               "border": "1px solid #666",
@@ -343,8 +360,40 @@
               "parentId":4,
               "id":8,
               "name":"接客僧",
-              "top": "69%",
-              "left": "15%",
+              "top": "45%",
+              "left": "29%",
+               "width": "35px",
+              "height": "30px",
+              "border": "1px solid #666",
+              "backgroundColor": "#ccc",
+              "position": "absolute",
+              "cursor": "move",
+            //   "zIndex": "3000",
+            //   "img":require('../../assets/zhongzhuang1.jpg')
+
+          },
+            {
+              "parentId":4,
+              "id":9,
+              "name":"谷岙1",
+              "top": "57%",
+              "left": "83%",
+               "width": "35px",
+              "height": "30px",
+              "border": "1px solid #666",
+              "backgroundColor": "#ccc",
+              "position": "absolute",
+              "cursor": "move",
+            //   "zIndex": "3000",
+            //   "img":require('../../assets/zhongzhuang1.jpg')
+
+          },
+           {
+              "parentId":4,
+              "id":10,
+              "name":"谷岙2",
+              "top": "52%",
+              "left": "86%",
                "width": "35px",
               "height": "30px",
               "border": "1px solid #666",
@@ -482,13 +531,13 @@
   methods: {
     init :function(){
       document.getElementsByClassName("drag")[0].style.height=window.innerHeight+'px';
-      document.getElementsByClassName("drag")[0].style.width=window.innerWidth+'px';
+      // document.getElementsByClassName("drag")[0].style.width=window.innerWidth+'px';
     },
     clickIcon: function (item,event) {
         this.clickFlag = true;
-        document.getElementsByClassName("innerImg")[0].style.width=window.innerWidth+'px'; 
+        // document.getElementsByClassName("innerImg")[0].style.width=window.innerWidth+'px'; 
         document.getElementsByClassName("innerImg")[0].style.height=window.innerHeight+'px'; 
-        this.imgUrl = require('../../assets/zhongzhuang1.png');
+        this.imgUrl = require('../../assets/zhongzhuang.png');
         
 
     //    item.img =  require('@/assets/'+this.a)
@@ -524,35 +573,71 @@
   }
 </script>
 <style >
+  .el-row {
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple {
+    background: #d3dce6;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+  .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
+  }
+    .innerTable{
+      position: absolute;
+      height: 600px;
+      width: 600px;
+      border:1px solid ;
+      top: 50px;
+      right: 20px;
+      overflow-y: scroll; 
+    }
    .dialogclass {
         height: 80%;
-        overflow-y: scroll;
+        /* overflow-y: scroll; */
     }
 </style>
 <style scoped>
 
 .drag {
-        width: 1000px;
-        height: 1000px;
         background-image: url(../../assets/wangge2.png);
-        background-size:100% 100%;
+        background-size:80% 100%;
+        background-position:center top;
+        background-repeat: no-repeat;
+        margin: auto 10%;
         position: relative;
     }
 
     .innerdrag{
-        background-size:100% 100%;
+      background-size:100% 100%;
         position: relative;
     }
     .innerImg{
-        width: 200px;
         height: 200px;
-        background-size:100% 100%;
+        background-size:80% 100%;
         background-attachment:fixed;
         background-repeat: no-repeat;
+        background-position:center top;
+        margin: auto 10%;
         position: relative;
         /* background-color: red; */
     }
  
-    
     
 </style>
