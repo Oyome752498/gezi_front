@@ -1055,7 +1055,7 @@
     init :function(){
       document.getElementsByClassName("drag")[0].style.height=window.innerHeight-50+'px';
       let image = new Image();
-      image.src = "http://localhost:8080/download/wangge2.png";
+      image.src = "http://1.116.61.236:8080/download/wangge2.png";
       // document.getElementsByClassName("drag")[0].style.width=window.innerWidth+'px';
     },
     clickIcon: function (item,event) {
@@ -1063,7 +1063,7 @@
         this.clickBigFlag = true;
         // document.getElementsByClassName("innerImg")[0].style.width=window.innerWidth+'px'; 
         
-        this.imgUrl = 'http://localhost:8080/download/zhongzhuang.png';
+        this.imgUrl = 'http://1.116.61.236:8080/download/zhongzhuang.png';
         document.getElementsByClassName("innerImg")[0].style.height=window.innerHeight-50+'px'; 
         
 
@@ -1155,7 +1155,7 @@
 <style scoped>
 
 .drag {
-        background-image: url(http://localhost:8080/download/wangge2.png);
+        background-image: url(http://1.116.61.236:8080/download/wangge2.png);
         background-size:80% 100%;
         background-position:center top;
         background-repeat: no-repeat;
