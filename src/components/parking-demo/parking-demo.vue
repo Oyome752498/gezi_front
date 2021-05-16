@@ -8,14 +8,14 @@
           position: item.position,
             cursor:item.cursor,
             zIndex:item.zIndex,
-          
+
 
 
             }" v-drag >
             <i class="iconfont icon-xingxing cancel"></i>
             </div>
-      
-   </div> 
+
+   </div>
        <div class="innerImg" @dblclick="close" v-bind:style="{display:clickFlag? 'block':'none',backgroundImage: 'url('+ imgUrl +')'}">
              <div v-for="item in innerItems" :key="item.id"  v-on:click="clickInnerIcon(item)" v-bind:style="{top:item.top,
             left:item.left,
@@ -24,268 +24,282 @@
           position: item.position,
             cursor:item.cursor,
             zIndex:item.zIndex,
-          
+
 
 
             }" v-drag >
             <i class="iconfont icon-xingxing cancel"></i>
             </div>
-          
-       
-        </div>  
+
+
+        </div>
         <!-- 大网格 -->
         <div class="innerTable"  v-bind:style="{display:clickBigFlag? 'block':'none'}">
-           
-           <div> <i class="iconfont icon-guanbi- closebtn" @click="clickBigFlag = false"></i></div>
-         
-          <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>网格长（一肩挑）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.user}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.mobile}}</span></div></el-col>
-          </el-row>
-          <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>村庄面积（km²）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.area}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>林地、耕地（亩）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.woodland}}</span></div></el-col>
-          </el-row> 
-          <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>地质灾害点（处）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.geologicalHazards}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>违章建筑（处）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.unauthorizedConstruction}}</span></div></el-col>
-          </el-row>   
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>户数（户）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.huoseholds}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>总人口数（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.totalPopulation}}</span></div></el-col>
-          </el-row>         
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>常住人口（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.population}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>在外人口（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.outsiders}}</span></div></el-col>
-          </el-row>    
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>党员（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.party}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>困难户党员（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.poorHouseholds}}</span></div></el-col>
-          </el-row>    
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>低保户（户）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.lowIncomeHouseholds}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>低边户（户）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.lowEdgeHousehold}}</span></div></el-col>
-          </el-row>    
-            <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>退伍军人（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.exSoldier }}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>残疾人（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.theDisabled}}</span></div></el-col>
-          </el-row>     
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>新居民（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.newResidents}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>村民代表（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.villagerRepresentative}}</span></div></el-col>
-          </el-row>   
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>重点人员（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.keyPersonnel}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>吸毒管控对象（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.drugControlObjects}}</span></div></el-col>
-          </el-row>    
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>社区矫正对象（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.communityCorrection }}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>易肇事肇祸精神病人（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.accident}}</span></div></el-col>
-          </el-row>    
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>重点场所（处）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.keyPlaces}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>出租房（处）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.rentalHousing}}</span></div></el-col>
-          </el-row>    
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>合用场所（处）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.sharedSpace}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>宗教场所（处）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.worship}}</span></div></el-col>
-          </el-row>    
-            <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>2021年共化解矛盾纠纷（起）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.disputes}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>待化解矛盾纠纷（起）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.conflictsResolved}}</span></div></el-col>
-          </el-row>    
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>驻堂名单</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.garrisonname1}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.garrisonmobile1}}</span></div></el-col>
-          </el-row>    
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>驻堂名单</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.garrisonname2}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.garrisonmobile2}}</span></div></el-col>
-          </el-row> 
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>驻村干部</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.villageCadres}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.villageCadresmobile}}</span></div></el-col>
-          </el-row>   
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>专职网格员</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.fullTimeGridMember}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.fullTimeGridMembermobile}}</span></div></el-col>
-          </el-row>    
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>辖区民警</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.districtPolice}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.districtPolicemobile}}</span></div></el-col>
-          </el-row>  
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>市监入格员</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.qualifiedSupervisor}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.qualifiedSupervisormobile}}</span></div></el-col>
-          </el-row>     
-          <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>住建入格员</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.housingConstruction}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.housingConstructionmobile}}</span></div></el-col>
-          </el-row>     
-          <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>安监入格员</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.safetySupervisor}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.safetySupervisormobile}}</span></div></el-col>
-          </el-row>   
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>消防入格员</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.qualifiedFireOfficer}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.qualifiedFireOfficermobile}}</span></div></el-col>
-          </el-row>    
-          <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>禁毒入格员</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.qualifiedDrugControlOfficer}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.qualifiedDrugControlOfficermobile}}</span></div></el-col>
-          </el-row>
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>自规入格员</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.selfQualifiedPersonnel}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.selfQualifiedPersonnelmobile}}</span></div></el-col>
-          </el-row> 
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>备注</span></div></el-col>
-            <el-col :span="18"><div class="grid-content bg-purple"><span>{{formInline.memo}}</span></div></el-col>
-          </el-row> 
+           <div class="innerTableBox">
+             <i class="iconfont icon-guanbi- closebtn" @click="clickBigFlag = false"></i>
+             <div class="innerTableCon">
+               <div class="headRow">
+                 <el-row type="flex" class="row-bg">
+                   <el-col :span="6"><div class="grid-content bg-purple"><span>网格长（一肩挑）</span></div></el-col>
+                   <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.user}}</span></div></el-col>
+                   <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
+                   <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.mobile}}</span></div></el-col>
+                 </el-row>
+               </div>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>村庄面积（km²）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.area}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>林地、耕地（亩）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.woodland}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>地质灾害点（处）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.geologicalHazards}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>违章建筑（处）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.unauthorizedConstruction}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>户数（户）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.huoseholds}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>总人口数（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.totalPopulation}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>常住人口（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.population}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>在外人口（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.outsiders}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>党员（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.party}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>困难户党员（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.poorHouseholds}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>低保户（户）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.lowIncomeHouseholds}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>低边户（户）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.lowEdgeHousehold}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>退伍军人（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.exSoldier }}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>残疾人（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.theDisabled}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>新居民（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.newResidents}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>村民代表（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.villagerRepresentative}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>重点人员（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.keyPersonnel}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>吸毒管控对象（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.drugControlObjects}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>社区矫正对象（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.communityCorrection }}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>易肇事肇祸精神病人（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.accident}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>重点场所（处）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.keyPlaces}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>出租房（处）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.rentalHousing}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>合用场所（处）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.sharedSpace}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>宗教场所（处）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.worship}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>2021年共化解矛盾纠纷（起）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.disputes}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>待化解矛盾纠纷（起）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.conflictsResolved}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>驻堂名单</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.garrisonname1}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.garrisonmobile1}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>驻堂名单</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.garrisonname2}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.garrisonmobile2}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>驻村干部</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.villageCadres}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.villageCadresmobile}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>专职网格员</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.fullTimeGridMember}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.fullTimeGridMembermobile}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>辖区民警</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.districtPolice}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.districtPolicemobile}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>市监入格员</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.qualifiedSupervisor}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.qualifiedSupervisormobile}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>住建入格员</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.housingConstruction}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.housingConstructionmobile}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>安监入格员</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.safetySupervisor}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.safetySupervisormobile}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>消防入格员</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.qualifiedFireOfficer}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.qualifiedFireOfficermobile}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>禁毒入格员</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.qualifiedDrugControlOfficer}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.qualifiedDrugControlOfficermobile}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>自规入格员</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInline.selfQualifiedPersonnel}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInline.selfQualifiedPersonnelmobile}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>备注</span></div></el-col>
+                 <el-col :span="18"><div class="grid-content bg-purple"><span>{{formInline.memo}}</span></div></el-col>
+               </el-row>
+             </div>
+
+           </div>
+
+
         </div>
           <!-- 微网格 -->
         <div class="innerTable"  v-bind:style="{display:clickInnerFlag? 'block':'none'}">
-           <div> <i class="iconfont icon-guanbi- closebtn" @click="clickInnerFlag = false"></i></div>
-          <el-row type="flex" class="row-bg">
-            <el-col :span="24"><div class="grid-content bg-purple"><span>{{innerTitle}}</span></div></el-col>
-          </el-row>
-          <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>网格长（一肩挑）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.user}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.mobile}}</span></div></el-col>
-          </el-row>
-         
-          <el-row type="flex" class="row-bg">
-            <el-col :span="12"><div class="grid-content bg-purple"><span>地质灾害点（处）</span></div></el-col>
-            <el-col :span="12"><div class="grid-content bg-purple"><span >{{formInnerInline.geologicalHazards}}</span></div></el-col>
-            
-          </el-row>   
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>户数（户）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.huoseholds}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>总人口数（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.totalPopulation}}</span></div></el-col>
-          </el-row>         
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>常住人口（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.population}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>在外人口（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.outsiders}}</span></div></el-col>
-          </el-row>    
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>党员（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.party}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>困难户党员（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.poorHouseholds}}</span></div></el-col>
-          </el-row>    
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>低保户（户）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.lowIncomeHouseholds}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>低边户（户）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.lowEdgeHousehold}}</span></div></el-col>
-          </el-row>    
-            <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>退伍军人（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.exSoldier }}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>残疾人（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.theDisabled}}</span></div></el-col>
-          </el-row>     
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>新居民（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.newResidents}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>村民代表（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.villagerRepresentative}}</span></div></el-col>
-          </el-row>   
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>重点人员（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.keyPersonnel}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>吸毒管控对象（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.drugControlObjects}}</span></div></el-col>
-          </el-row>    
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>社区矫正对象（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.communityCorrection }}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>易肇事肇祸精神病人（人）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.accident}}</span></div></el-col>
-          </el-row>    
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>重点场所（处）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.keyPlaces}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>出租房（处）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.rentalHousing}}</span></div></el-col>
-          </el-row>    
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>合用场所（处）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.sharedSpace}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>宗教场所（处）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.worship}}</span></div></el-col>
-          </el-row>    
-            <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>2021年共化解矛盾纠纷（起）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.disputes}}</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"><span>待化解矛盾纠纷（起）</span></div></el-col>
-            <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.conflictsResolved}}</span></div></el-col>
-          </el-row>    
-          
-           <el-row type="flex" class="row-bg">
-            <el-col :span="6"><div class="grid-content bg-purple"><span>备注</span></div></el-col>
-            <el-col :span="18"><div class="grid-content bg-purple"><span>{{formInnerInline.memo}}</span></div></el-col>
-          </el-row> 
+           <div class="innerTableBox">
+             <i class="iconfont icon-guanbi- closebtn" @click="clickInnerFlag = false"></i>
+             <div class="innerTableCon">
+               <div class="headRow">
+                 <h2 class="innerTitle"><span>{{innerTitle}}</span></h2>
+                 <el-row type="flex" class="row-bg">
+                   <el-col :span="6"><div class="grid-content bg-purple"><span>网格长（一肩挑）</span></div></el-col>
+                   <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.user}}</span></div></el-col>
+                   <el-col :span="6"><div class="grid-content bg-purple"><span>联系方式</span></div></el-col>
+                   <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.mobile}}</span></div></el-col>
+                 </el-row>
+               </div>
+
+
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="12"><div class="grid-content bg-purple"><span>地质灾害点（处）</span></div></el-col>
+                 <el-col :span="12"><div class="grid-content bg-purple"><span >{{formInnerInline.geologicalHazards}}</span></div></el-col>
+
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>户数（户）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.huoseholds}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>总人口数（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.totalPopulation}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>常住人口（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.population}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>在外人口（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.outsiders}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>党员（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.party}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>困难户党员（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.poorHouseholds}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>低保户（户）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.lowIncomeHouseholds}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>低边户（户）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.lowEdgeHousehold}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>退伍军人（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.exSoldier }}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>残疾人（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.theDisabled}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>新居民（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.newResidents}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>村民代表（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.villagerRepresentative}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>重点人员（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.keyPersonnel}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>吸毒管控对象（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.drugControlObjects}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>社区矫正对象（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.communityCorrection }}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>易肇事肇祸精神病人（人）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.accident}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>重点场所（处）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.keyPlaces}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>出租房（处）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.rentalHousing}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>合用场所（处）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.sharedSpace}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>宗教场所（处）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.worship}}</span></div></el-col>
+               </el-row>
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>2021年共化解矛盾纠纷（起）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span >{{formInnerInline.disputes}}</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>待化解矛盾纠纷（起）</span></div></el-col>
+                 <el-col :span="6"><div class="grid-content bg-purple"> <span>{{formInnerInline.conflictsResolved}}</span></div></el-col>
+               </el-row>
+
+               <el-row type="flex" class="row-bg">
+                 <el-col :span="6"><div class="grid-content bg-purple"><span>备注</span></div></el-col>
+                 <el-col :span="18"><div class="grid-content bg-purple"><span>{{formInnerInline.memo}}</span></div></el-col>
+               </el-row>
+             </div>
+
+           </div>
+
         </div>
 </div>
- 
-    
+
+
        <!-- <div class="innerdrag">
        <img id="imgs"  :src="url"/>
         <div v-for="item in innerItems" :key="item.id"  v-on:click="clickInnerIcon(item)" v-bind:style="{top:item.top,
@@ -295,28 +309,28 @@
           position: item.position,
             cursor:item.cursor,
             zIndex:item.zIndex,
-          
+
 
 
             }" v-Innerdrag >
             <i class="iconfont icon-xingxing"></i>
             </div> -->
-          
+
       <!-- </div> -->
-       
-    
-        
+
+
+
       <!-- <img :src="url" v-bind:style="{width:'90%'}" id="imgs"/>     -->
-      
-           
 
-       
 
-            
+
+
+
+
   <!-- border:item.border,
             backgroundColor:item.backgroundColor -->
 
- 
+
 </template>
 
 <script>
@@ -324,9 +338,9 @@
 
     data() {
       return {
-      clickFlag:false,  
+      clickFlag:false,
       clickBigFlag:false,
-      clickInnerFlag:false,   
+      clickInnerFlag:false,
       appRootElment:{},
       showDialog:false,
        imgUrl:"",
@@ -334,7 +348,7 @@
        innerVisible:false,
         aaa:'123123',
              items:[
-     
+
            {
               "id":4,
               "name":"中庄微网格",
@@ -351,7 +365,7 @@
 
           },
 
-          
+
       ],
       /*
       大网格表单
@@ -370,12 +384,12 @@
           party:'64',//党员（人）
           poorHouseholds:'1',//困难户党员（人）
           lowIncomeHouseholds:'29',//低保户（户）
-          lowEdgeHousehold:'2',//低边户（户） 
+          lowEdgeHousehold:'2',//低边户（户）
           exSoldier :'38',//退伍军人（人）
           theDisabled:'59',//残疾人（人）
           newResidents:'51',//新居民（人）
           villagerRepresentative:'61', //村民代表（人）
-          keyPersonnel:'50',//重点人员（人） 
+          keyPersonnel:'50',//重点人员（人）
           drugControlObjects:'4',//吸毒管控对象（人）
           communityCorrection :'8',//社区矫正对象（人）
           accident:'8',//易肇事肇祸精神病人（人）
@@ -423,12 +437,12 @@
           party:'',//党员（人）
           poorHouseholds:'',//困难户党员（人）
           lowIncomeHouseholds:'',//低保户（户）
-          lowEdgeHousehold:'',//低边户（户） 
+          lowEdgeHousehold:'',//低边户（户）
           exSoldier :'',//退伍军人（人）
           theDisabled:'',//残疾人（人）
           newResidents:'',//新居民（人）
           villagerRepresentative:'', //村民代表（人）
-          keyPersonnel:'',//重点人员（人） 
+          keyPersonnel:'',//重点人员（人）
           drugControlObjects:'',//吸毒管控对象（人）
           communityCorrection :'',//社区矫正对象（人）
           accident:'',//易肇事肇祸精神病人（人）
@@ -622,12 +636,12 @@
                 party:'5',//党员（人）
                 poorHouseholds:'0',//困难户党员（人）
                 lowIncomeHouseholds:'2',//低保户（户）
-                lowEdgeHousehold:'0',//低边户（户） 
+                lowEdgeHousehold:'0',//低边户（户）
                 exSoldier :'0',//退伍军人（人）
                 theDisabled:'6',//残疾人（人）
                 newResidents:'0',//新居民（人）
                 villagerRepresentative:'5', //村民代表（人）
-                keyPersonnel:'1',//重点人员（人） 
+                keyPersonnel:'1',//重点人员（人）
                 drugControlObjects:'0',//吸毒管控对象（人）
                 communityCorrection :'0',//社区矫正对象（人）
                 accident:'1',//易肇事肇祸精神病人（人）
@@ -654,12 +668,12 @@
                 party:'4',//党员（人）
                 poorHouseholds:'0',//困难户党员（人）
                 lowIncomeHouseholds:'2',//低保户（户）
-                lowEdgeHousehold:'0',//低边户（户） 
+                lowEdgeHousehold:'0',//低边户（户）
                 exSoldier :'3',//退伍军人（人）
                 theDisabled:'2',//残疾人（人）
                 newResidents:'0',//新居民（人）
                 villagerRepresentative:'4', //村民代表（人）
-                keyPersonnel:'0',//重点人员（人） 
+                keyPersonnel:'0',//重点人员（人）
                 drugControlObjects:'0',//吸毒管控对象（人）
                 communityCorrection :'0',//社区矫正对象（人）
                 accident:'0',//易肇事肇祸精神病人（人）
@@ -686,12 +700,12 @@
                 party:'10',//党员（人）
                 poorHouseholds:'0',//困难户党员（人）
                 lowIncomeHouseholds:'1',//低保户（户）
-                lowEdgeHousehold:'0',//低边户（户） 
+                lowEdgeHousehold:'0',//低边户（户）
                 exSoldier :'9',//退伍军人（人）
                 theDisabled:'4',//残疾人（人）
                 newResidents:'0',//新居民（人）
                 villagerRepresentative:'10', //村民代表（人）
-                keyPersonnel:'0',//重点人员（人） 
+                keyPersonnel:'0',//重点人员（人）
                 drugControlObjects:'0',//吸毒管控对象（人）
                 communityCorrection :'0',//社区矫正对象（人）
                 accident:'0',//易肇事肇祸精神病人（人）
@@ -718,12 +732,12 @@
                 party:'4',//党员（人）
                 poorHouseholds:'0',//困难户党员（人）
                 lowIncomeHouseholds:'0',//低保户（户）
-                lowEdgeHousehold:'0',//低边户（户） 
+                lowEdgeHousehold:'0',//低边户（户）
                 exSoldier :'3',//退伍军人（人）
                 theDisabled:'1',//残疾人（人）
                 newResidents:'5',//新居民（人）
                 villagerRepresentative:'4', //村民代表（人）
-                keyPersonnel:'0',//重点人员（人） 
+                keyPersonnel:'0',//重点人员（人）
                 drugControlObjects:'0',//吸毒管控对象（人）
                 communityCorrection :'0',//社区矫正对象（人）
                 accident:'0',//易肇事肇祸精神病人（人）
@@ -750,12 +764,12 @@
                 party:'8',//党员（人）
                 poorHouseholds:'0',//困难户党员（人）
                 lowIncomeHouseholds:'9',//低保户（户）
-                lowEdgeHousehold:'0',//低边户（户） 
+                lowEdgeHousehold:'0',//低边户（户）
                 exSoldier :'6',//退伍军人（人）
                 theDisabled:'14',//残疾人（人）
                 newResidents:'2',//新居民（人）
                 villagerRepresentative:'3', //村民代表（人）
-                keyPersonnel:'5',//重点人员（人） 
+                keyPersonnel:'5',//重点人员（人）
                 drugControlObjects:'1',//吸毒管控对象（人）
                 communityCorrection :'3',//社区矫正对象（人）
                 accident:'1',//易肇事肇祸精神病人（人）
@@ -782,12 +796,12 @@
                 party:'6',//党员（人）
                 poorHouseholds:'0',//困难户党员（人）
                 lowIncomeHouseholds:'4',//低保户（户）
-                lowEdgeHousehold:'1',//低边户（户） 
+                lowEdgeHousehold:'1',//低边户（户）
                 exSoldier :'2',//退伍军人（人）
                 theDisabled:'7',//残疾人（人）
                 newResidents:'10',//新居民（人）
                 villagerRepresentative:'4', //村民代表（人）
-                keyPersonnel:'2',//重点人员（人） 
+                keyPersonnel:'2',//重点人员（人）
                 drugControlObjects:'0',//吸毒管控对象（人）
                 communityCorrection :'2',//社区矫正对象（人）
                 accident:'0',//易肇事肇祸精神病人（人）
@@ -814,12 +828,12 @@
                 party:'7',//党员（人）
                 poorHouseholds:'0',//困难户党员（人）
                 lowIncomeHouseholds:'2',//低保户（户）
-                lowEdgeHousehold:'1',//低边户（户） 
+                lowEdgeHousehold:'1',//低边户（户）
                 exSoldier :'3',//退伍军人（人）
                 theDisabled:'3',//残疾人（人）
                 newResidents:'4',//新居民（人）
                 villagerRepresentative:'4', //村民代表（人）
-                keyPersonnel:'3',//重点人员（人） 
+                keyPersonnel:'3',//重点人员（人）
                 drugControlObjects:'0',//吸毒管控对象（人）
                 communityCorrection :'2',//社区矫正对象（人）
                 accident:'1',//易肇事肇祸精神病人（人）
@@ -830,7 +844,7 @@
                 disputes:'0',//2021年共化解矛盾纠纷（起）
                 conflictsResolved:'0',//待化解矛盾纠纷（起）
                 memo:''
-            },  
+            },
             /**
              * 兰岩
              */
@@ -846,12 +860,12 @@
                 party:'7',//党员（人）
                 poorHouseholds:'0',//困难户党员（人）
                 lowIncomeHouseholds:'5',//低保户（户）
-                lowEdgeHousehold:'0',//低边户（户） 
+                lowEdgeHousehold:'0',//低边户（户）
                 exSoldier :'3',//退伍军人（人）
                 theDisabled:'8',//残疾人（人）
                 newResidents:'18',//新居民（人）
                 villagerRepresentative:'6', //村民代表（人）
-                keyPersonnel:'0',//重点人员（人） 
+                keyPersonnel:'0',//重点人员（人）
                 drugControlObjects:'0',//吸毒管控对象（人）
                 communityCorrection :'0',//社区矫正对象（人）
                 accident:'0',//易肇事肇祸精神病人（人）
@@ -878,12 +892,12 @@
                 party:'5',//党员（人）
                 poorHouseholds:'0',//困难户党员（人）
                 lowIncomeHouseholds:'2',//低保户（户）
-                lowEdgeHousehold:'0',//低边户（户） 
+                lowEdgeHousehold:'0',//低边户（户）
                 exSoldier :'2',//退伍军人（人）
                 theDisabled:'10',//残疾人（人）
                 newResidents:'9',//新居民（人）
                 villagerRepresentative:'6', //村民代表（人）
-                keyPersonnel:'4',//重点人员（人） 
+                keyPersonnel:'4',//重点人员（人）
                 drugControlObjects:'3',//吸毒管控对象（人）
                 communityCorrection :'1',//社区矫正对象（人）
                 accident:'0',//易肇事肇祸精神病人（人）
@@ -910,12 +924,12 @@
                 party:'8',//党员（人）
                 poorHouseholds:'0',//困难户党员（人）
                 lowIncomeHouseholds:'2',//低保户（户）
-                lowEdgeHousehold:'0',//低边户（户） 
+                lowEdgeHousehold:'0',//低边户（户）
                 exSoldier :'5',//退伍军人（人）
                 theDisabled:'1',//残疾人（人）
                 newResidents:'3',//新居民（人）
                 villagerRepresentative:'9', //村民代表（人）
-                keyPersonnel:'0',//重点人员（人） 
+                keyPersonnel:'0',//重点人员（人）
                 drugControlObjects:'0',//吸毒管控对象（人）
                 communityCorrection :'0',//社区矫正对象（人）
                 accident:'0',//易肇事肇祸精神病人（人）
@@ -929,7 +943,7 @@
             },
           ]
       }
- 
+
     },
        //注册局部组件指令
         directives: {
@@ -949,7 +963,7 @@
                     }else{
                         oldY = e.srcElement.parentNode.parentNode.clientHeight-dragBox.clientHeight;
                     }
-                   
+
                     //算出鼠标相对元素的位置
 
                     let disX = e.clientX - dragBox.offsetLeft;
@@ -960,15 +974,15 @@
                         let top = e.clientY - disY;
                         //移动当前元素
                         if(left+e.srcElement.clientWidth <=e.srcElement.parentNode.clientWidth &&
-                        top+e.srcElement.clientHeight <=e.srcElement.parentNode.clientHeight 
+                        top+e.srcElement.clientHeight <=e.srcElement.parentNode.clientHeight
                         ){
                             dragBox.style.left = left + "px";
                             dragBox.style.top = top + "px";
                         }
-                        
+
                     };
                     document.onmouseup = e => {
-                        if(e.srcElement.parentNode.offsetLeft <= 0 
+                        if(e.srcElement.parentNode.offsetLeft <= 0
                         || e.srcElement.parentNode.offsetTop <= 0
                         ||e.srcElement.parentNode.offsetLeft+e.srcElement.parentNode.clientWidth>e.srcElement.parentNode.parentNode.clientWidth
                         ||e.srcElement.parentNode.offsetTop+e.srcElement.parentNode.clientHeight>e.srcElement.parentNode.parentNode.clientHeight){
@@ -980,7 +994,7 @@
 
                           //鼠标弹起来的时候不再移动
                           document.onmousemove = null;
-                         //预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）  
+                         //预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）
                         document.onmouseup = null;
                     };
                 };
@@ -1001,7 +1015,7 @@
                     }else{
                         oldY = e.srcElement.parentNode.parentNode.firstChild.clientHeight-dragBox.clientHeight;
                     }
-                   
+
                     //算出鼠标相对元素的位置
 
                     let disX = e.clientX - dragBox.offsetLeft;
@@ -1012,15 +1026,15 @@
                         let top = e.clientY - disY;
                         // //移动当前元素
                         // if(left+e.srcElement.clientWidth <=e.srcElement.parentNode.parentNode.firstChild.clientWidth &&
-                        // top+e.srcElement.clientHeight <=e.srcElement.parentNode.parentNode.firstChild.clientHeight 
+                        // top+e.srcElement.clientHeight <=e.srcElement.parentNode.parentNode.firstChild.clientHeight
                         // ){
                         //     dragBox.style.left = left + "px";
                         //     dragBox.style.top = top + "px";
                         // }
-                        
+
                     };
                     document.onmouseup = e => {
-                        // if(e.srcElement.parentNode.offsetLeft <= 0 
+                        // if(e.srcElement.parentNode.offsetLeft <= 0
                         // || e.srcElement.parentNode.offsetTop <= 0
                         // ||e.srcElement.parentNode.offsetLeft+e.srcElement.parentNode.clientWidth>e.srcElement.parentNode.parentNode.clientWidth
                         // ||e.srcElement.parentNode.offsetTop+e.srcElement.parentNode.clientHeight>e.srcElement.parentNode.parentNode.clientHeight){
@@ -1032,18 +1046,18 @@
 
                           //鼠标弹起来的时候不再移动
                           document.onmousemove = null;
-                         //预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）  
+                         //预防鼠标弹起来后还会循环（即预防鼠标放上去的时候还会移动）
                         document.onmouseup = null;
                     };
                 };
             },
-           
+
         },
     methods:{
     //   goto(){
     //     this.$router.push("/ProcessingCenter")
     //   },
- 
+
     },
      mounted() {
        this.init();
@@ -1061,17 +1075,18 @@
     clickIcon: function (item,event) {
         this.clickFlag = true;
         this.clickBigFlag = true;
-        // document.getElementsByClassName("innerImg")[0].style.width=window.innerWidth+'px'; 
-        
+        // document.getElementsByClassName("innerImg")[0].style.width=window.innerWidth+'px';
+
         this.imgUrl = 'http://1.116.61.236:8080/download/zhongzhuang.png';
-        document.getElementsByClassName("innerImg")[0].style.height=window.innerHeight-50+'px'; 
-        
+        document.getElementsByClassName("innerImg")[0].style.height=window.innerHeight-50+'px';
+
 
     //    item.img =  require('@/assets/'+this.a)
     //     let routeData = this.$router.resolve({
     //     name: 'MessageCenter',
     //     query: {img: item.img,id:item.id}
 
+    // })
     // })
     // window.open(routeData.href, '_blank')
     //     this.dialogVisible = true;
@@ -1080,10 +1095,10 @@
     //     document.getElementById("imgs")
         // this.innerVisible = true;
         // alert(item.id);
-     
+
     },
-    
-  
+
+
   close: function(){
       this.clickFlag = false;
       this.clickBigFlag = false;
@@ -1119,7 +1134,7 @@
     } */
   }
   .el-col {
-    border-radius: 4px;
+   margin-right: 1px;
   }
   .bg-purple-dark {
     background: #99a9bf;
@@ -1131,22 +1146,57 @@
     background: #e5e9f2;
   }
   .grid-content {
-    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    font-size:14px;
     min-height: 36px;
+    padding: 0 5px;
+    /*line-height: 36px;*/
   }
   .row-bg {
-    padding: 5px 0;
-    background-color: #f9fafc;
+    padding: 6px 0;
   }
-    .innerTable{
+  .row-bg:last-child, .row-bg:first-child{
+    padding: 0;
+  }
+
+  .innerTable{
       position: absolute;
-      height: 600px;
-      width: 600px;
-      border:1px solid ;
       top: 50px;
       right: 20px;
-      overflow-y: scroll; 
     }
+  .innerTableBox{
+    position: relative;
+    padding: 15px;
+    box-shadow:0 6px 10px 2px rgba(0,0,0,0.5);
+    background-color:rgba(255,255,255,0.8);
+  }
+  .innerTableCon{
+    overflow-y: auto;
+    height: 600px;
+    width: 570px;
+
+  }
+  .innerTableCon::-webkit-scrollbar {
+    display: none;
+  }
+  .headRow{
+    z-index: 100;
+    position: sticky;
+    top:0;
+    box-shadow:0 0 6px 2px rgba(0,0,0,0.1);
+  }
+  .headRow .bg-purple{
+    /*background: #8cc5ff;*/
+    background: rgba(255,255,255,0.8);
+  }
+  .headRow .innerTitle{
+    font-size: 20px;
+    line-height: 36px;
+    background: rgba(255,255,255,0.8);
+  }
    .dialogclass {
         height: 80%;
         /* overflow-y: scroll; */
@@ -1176,11 +1226,16 @@
         /* background-color: red; */
     }
     .closebtn{
+      z-index: 101;
+      position: absolute;
+      right: -12px;
+      top: -12px;
       font-size: 25px;
-      margin-right: -96%;
+      border-radius: 100%;
+      background: rgba(255,255,255,1);
     }
  .cancel{
    opacity: 0;
  }
-    
+
 </style>
