@@ -6,7 +6,8 @@ import ElementUi from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/reset.css'
 import axios from "axios"
-import './assets/iconfont/iconfont.css'
+// import './assets/iconfont/iconfont.css'
+import './assets/iconclose/iconfont.css'
 Vue.use(VueRx)
 Vue.use(ElementUi)
 Vue.config.productionTip = false

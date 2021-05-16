@@ -1,0 +1,30 @@
+{
+  "id": "1763948",
+  "name": "phonetest",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7312822",
+      "name": "关闭",
+      "font_class": "guanbi-",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "11544835",
+      "name": "星星",
+      "font_class": "xingxing",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "9358720",
+      "name": "phone",
+      "font_class": "phone",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    }
+  ]
+}
